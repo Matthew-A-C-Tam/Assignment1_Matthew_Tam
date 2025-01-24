@@ -5,11 +5,17 @@
 
 class NonPerishableItem : public Item
 {
-	int warrentyPeriod;
+	int warrantyPeriod;
 
 public:
-	NonPerishableItem(int id, string name, int quantity, double price, string warrentyPeriod);
-	string getWarrentyPeriod();
+	// Constructor
+	NonPerishableItem(int id, string name, int quantity, double price, int warrantyPeriod);
+
+	// Getter
+	int getWarrantyPeriod() const;
+
+	// Setter
+	void setWarrantyPeriod(int warrantyPeriod);
 };
 
 #endif

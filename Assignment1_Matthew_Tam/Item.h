@@ -6,18 +6,29 @@ using namespace std;
 
 class Item
 {
-public:
+protected:
 	int id;
 	string name;
 	int quantity;
 	double price;
 
 public:
+	// Constructor
 	Item(int id, string name, int quantity, double price);
-	int getID();
-	string getName();
-	int getQuantity();
-	double getPrice();
+
+	// Getters
+	int getID() const;
+	string getName() const;
+	int getQuantity() const;
+	double getPrice() const;
+
+	// Setters
+	void setName(const string name);
+	void setQuantity(const int quantity);
+	void setPrice(const double price);
+
+	// Display
+	virtual void display();
 };
 
 #endif
