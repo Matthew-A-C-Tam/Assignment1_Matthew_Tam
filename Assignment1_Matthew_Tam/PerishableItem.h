@@ -9,7 +9,7 @@ class PerishableItem : public Item
 
 public:
 	// Constructor
-	PerishableItem(int id, string name, int quantity, double price, string expirationDate);
+	PerishableItem(int id, string& name, int quantity, double price, string expirationDate);
 
 	// Getter
 	string getExpirationDate() const;

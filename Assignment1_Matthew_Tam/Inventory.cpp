@@ -12,7 +12,7 @@ Inventory::Inventory(int capacity)
 }
 
 // Add item to inventory
-void Inventory::addItem(Item item)
+void Inventory::addItem(Item* item)
 {
 	if (itemCount < capacity)
 	{
@@ -31,7 +31,7 @@ void Inventory::removeItem(int id)
 {
 	for (int i = 0; i < itemCount; i++)
 	{
-		if (items[i].getID() == id)
+		if (items[i]->getID() == id)
 		{
 			items.erase(items.begin() + i);
 			itemCount--;
@@ -53,35 +53,35 @@ void Inventory::displayAllItems()
 	{
 		for (int i = 0; i < itemCount; i++)
 		{
-			items[i].display();
+			items[i]->display();
 		}
 	}
 }
 
 // Save inventory to file
-void Inventory::saveToFile(string filename) {
+void Inventory::saveToFile(string& filename) {
 	ofstream outFile(filename);
 	if (!outFile) {
-		cout << "Error opening file for writing!" << endl;
+		cout << "Error in saving file!" << endl;
 		return;
 	}
 
 	for (const auto& item : items) {
-		outFile << item.getID() << " "
-			<< item.getName() << " "
-			<< item.getQuantity() << " "
-			<< item.getPrice() << endl;
+		outFile << item->getID() << " "
+			<< item->getName() << " "
+			<< item->getQuantity() << " "
+			<< item->getPrice() << endl;
 	}
 
 	outFile.close();
-	cout << "Inventory saved to file successfully!" << endl;
+	cout << "Successfully saved file!" << endl;
 }
 
 // Load inventory from file
-void Inventory::loadFromFile(string filename) {
+void Inventory::loadFromFile(string& filename) {
 	ifstream inFile(filename);
 	if (!inFile) {
-		cout << "Error opening file for reading!" << endl;
+		cout << "Error in loading file!" << endl;
 		return;
 	}
 	items.clear();
@@ -91,9 +91,18 @@ void Inventory::loadFromFile(string filename) {
 	double price;
 	while (inFile >> id >> name >> quantity >> price) {
 		Item item(id, name, quantity, price);
-		items.push_back(item);
+		items.push_back(new Item(id, name, quantity, price));
 		itemCount++;
 	}
 	inFile.close();
-	cout << "Inventory loaded from file successfully!" << endl;
+	cout << "Successfully loaded file!" << endl;
+}
+
+// Destructor
+Inventory::~Inventory()
+{
+	for (int i = 0; i < itemCount; i++)
+	{
+		delete items[i];
+	}
 }

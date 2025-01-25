@@ -14,7 +14,7 @@ protected:
 
 public:
 	// Constructor
-	Item(int id, string name, int quantity, double price);
+	Item(int id, string& name, int quantity, double price);
 
 	// Getters
 	int getID() const;
@@ -23,12 +23,15 @@ public:
 	double getPrice() const;
 
 	// Setters
-	void setName(const string name);
+	void setName(const string& name);
 	void setQuantity(const int quantity);
 	void setPrice(const double price);
 
 	// Display
-	virtual void display();
+	virtual void display() const;
+
+	// Destructor
+	virtual ~Item();
 };
 
 #endif

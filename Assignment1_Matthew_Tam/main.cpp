@@ -63,12 +63,12 @@ int main() {
                 cout << "Enter Expiration Date: ";
                 cin.ignore();
                 getline(cin, expirationDate);
-                inventory.addItem(PerishableItem(id, name, quantity, price, expirationDate));
+                inventory.addItem(new PerishableItem(id, name, quantity, price, expirationDate));
             }
             else if (type == 2) {
                 cout << "Enter Warranty Period (in months): ";
                 cin >> warrantyPeriod;
-                inventory.addItem(NonPerishableItem(id, name, quantity, price, warrantyPeriod));
+                inventory.addItem(new NonPerishableItem(id, name, quantity, price, warrantyPeriod));
             }
             else {
                 cout << "Invalid item type!" << endl;

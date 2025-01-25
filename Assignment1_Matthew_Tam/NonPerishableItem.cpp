@@ -4,7 +4,7 @@
 using namespace std;
 
 // Constructor
-NonPerishableItem::NonPerishableItem(int id, string name, int quantity, double price, int warrantyPeriod) : Item(id, name, quantity, price)
+NonPerishableItem::NonPerishableItem(int id, string& name, int quantity, double price, int warrantyPeriod) : Item(id, name, quantity, price)
 {
 	this->warrantyPeriod = warrantyPeriod;
 }

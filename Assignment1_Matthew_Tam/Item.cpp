@@ -4,7 +4,7 @@
 using namespace std;
 
 // Constructor
-Item::Item(int id, string name, int quantity, double price)
+Item::Item(int id, string& name, int quantity, double price)
 {
 	this->id = id;
 	this->name = name;
@@ -12,7 +12,7 @@ Item::Item(int id, string name, int quantity, double price)
 	this->price = price;
 }
 
-//Getters
+// Getters
 int Item::getID() const
 {
 	return id;
@@ -33,8 +33,8 @@ double Item::getPrice() const
 	return price;
 }
 
-//Setters
-void Item::setName(const string name)
+// Setters
+void Item::setName(const string& name)
 {
 	this->name = name;
 }
@@ -49,11 +49,14 @@ void Item::setPrice(const double price)
 	this->price = price;
 }
 
-//Display
-void Item::display()
+// Display
+void Item::display() const
 {
 	cout << "ID: " << id << endl;
 	cout << "Name: " << name << endl;
 	cout << "Quantity: " << quantity << endl;
 	cout << "Price: $" << price << endl;
 }
+
+// Destructor
+Item::~Item() {}

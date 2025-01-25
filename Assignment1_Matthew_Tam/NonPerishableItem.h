@@ -9,7 +9,7 @@ class NonPerishableItem : public Item
 
 public:
 	// Constructor
-	NonPerishableItem(int id, string name, int quantity, double price, int warrantyPeriod);
+	NonPerishableItem(int id, string& name, int quantity, double price, int warrantyPeriod);
 
 	// Getter
 	int getWarrantyPeriod() const;

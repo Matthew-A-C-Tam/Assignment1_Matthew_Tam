@@ -6,7 +6,7 @@
 
 class Inventory
 {
-	vector<Item> items;
+	vector<Item*> items;
 	int capacity;
 	int itemCount;
 
@@ -15,7 +15,7 @@ public:
 	Inventory(int capacity);
 
 	// Add item to inventory
-	void addItem(Item item);
+	void addItem(Item* item);
 
 	// Remove item from inventory
 	void removeItem(int id);
@@ -24,10 +24,13 @@ public:
 	void displayAllItems();
 
 	// Save inventory to file
-	void saveToFile(string filename);
+	void saveToFile(string& filename);
 
 	// Load inventory from file
-	void loadFromFile(string filename);
+	void loadFromFile(string& filename);
+
+	// Destructor
+	~Inventory();
 };
 
 #endif

@@ -4,7 +4,7 @@
 using namespace std;
 
 // Constructor
-PerishableItem::PerishableItem(int id, string name, int quantity, double price, string expirationDate) : Item(id, name, quantity, price)
+PerishableItem::PerishableItem(int id, string& name, int quantity, double price, string expirationDate) : Item(id, name, quantity, price)
 {
 	this->expirationDate = expirationDate;
 }
